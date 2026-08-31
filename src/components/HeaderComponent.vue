@@ -92,9 +92,6 @@ defineProps({
     display: flex;
     align-items: center;
     gap: 1.5rem;
-
-    /* margin: 0;
-    padding: 0; */
     list-style: none;
 }
 
@@ -166,6 +163,17 @@ defineProps({
 
     .link {
         padding: 0.6rem 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-list {
+        gap: 0.25rem;
+    }
+
+    .link {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.9rem;
     }
 }
 </style>

@@ -160,7 +160,7 @@ const limpiarMensajeError = () => {
 .titulo-formulario {
     position: relative;
     text-align: center;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
 }
 
 .formulario-libro,
@@ -370,6 +370,12 @@ const limpiarMensajeError = () => {
     .formulario-libro,
     .vista-previa {
         padding: 1.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .titulo-formulario {
+        padding-right: 2rem;
     }
 }
 </style>
