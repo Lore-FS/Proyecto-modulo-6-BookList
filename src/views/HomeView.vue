@@ -16,6 +16,7 @@ const emit = defineEmits(['login-exitoso'])
 
 const contador = ref(0)
 const mensaje = ref('')
+const mensajeInvitado = ref('')
 
 const credenciales = reactive({
   correo: '',
@@ -34,10 +35,14 @@ const resetearContador = () => {
   contador.value = 0
 }
 
-const handleSubmit = () => {
-  // limpiar mensajes antes de validar
+const limpiarMensajesError = () => {
   mensaje.value = ''
   mensajeInvitado.value = ''
+}
+
+const handleSubmit = () => {
+  // llamar a la funcion para limpiar mensajes antes de validar
+  limpiarMensajesError()
 
   const correo = credenciales.correo.trim()
   const password = credenciales.password.trim()
@@ -65,7 +70,6 @@ const handleSubmit = () => {
 }
 
 const nombreUsuarioInvitado = ref('')
-const mensajeInvitado = ref('')
 
 const ingresarComoInvitado = () => {
   // limpiar mensajes antes de validar
@@ -113,13 +117,13 @@ const mostrarFormularioInvitado = ref(false)
                         <div class="campo">
                             <label for="correo">Correo</label>
                             <input id="correo" v-model.trim="credenciales.correo" type="email"
-                                placeholder="ejemplo@correo.com" />
+                                placeholder="ejemplo@correo.com" @input="limpiarMensajesError" />
                         </div>
 
                         <div class="campo">
                             <label for="password">Contraseña</label>
                             <input id="password" v-model.trim="credenciales.password" type="password"
-                                placeholder="Ingrese su contraseña" />
+                                placeholder="Ingrese su contraseña" @input="limpiarMensajesError" />
                         </div>
 
                         <button type="submit" class="btn-principal">Ingresar</button>
@@ -147,7 +151,7 @@ const mostrarFormularioInvitado = ref(false)
                         <div class="campo">
                             <label for="nombreUsuarioInvitado">Nombre </label>
                             <input type="text" id="nombreUsuarioInvitado" placeholder="Ingrese su nombre"
-                                v-model.trim="nombreUsuarioInvitado">
+                                v-model.trim="nombreUsuarioInvitado" @input="limpiarMensajesError">
                         </div>
                         <button type="submit" class="btn-principal">Continuar como invitado</button>
                     </form>
