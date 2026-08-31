@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>BookList</title>
+
+    <!-- se agrega este script a index.html para recuperar la ruta guardada en 404.html y continuar la navegación en la SPA, según lo recomendado por Copilot y ChatGPT -->
+    <script>
+      const rutaRedireccion = sessionStorage.getItem('rutaRedireccion');
+
+      if (rutaRedireccion) {
+        sessionStorage.removeItem('rutaRedireccion');
+        history.replaceState(null, '', rutaRedireccion);
+      }
+    </script>
   </head>
   <body>
     <noscript>
