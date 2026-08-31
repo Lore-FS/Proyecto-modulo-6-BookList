@@ -421,5 +421,15 @@ const mostrarFormularioInvitado = ref(false)
     .tarjeta {
         padding: 1.5rem;
     }
+
+     .botones-contador {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .btn-secundario {
+        flex: 1;
+        padding: 0.8rem 0.5rem;
+    }
 }
 </style>
