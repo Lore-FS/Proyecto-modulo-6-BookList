@@ -119,9 +119,16 @@ defineProps({
 
 @media (max-width: 700px) {
     .header-contenido {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
         padding: 1rem;
-        gap: 1rem;
+        gap: 1.2rem 1rem;
+    }
+
+    .marca {
+        grid-column: 1;
+        grid-row: 1;
     }
 
     .marca h1 {
@@ -133,9 +140,32 @@ defineProps({
         height: 50px;
     }
 
+    nav {
+        display: contents;
+    }
+
+    .usuario-header{
+        grid-column: 2;
+        grid-row: 1;
+        margin: 0;
+        text-align: right;
+        font-size: 0.85rem;
+    }
+
     .nav-list {
+        grid-column: 1 / -1; /* ocupa las dos columnas, .nav-list empieza en la primera y llega hasta la última */
+        grid-row: 2; /* va en la segunda fila */
+        display: flex; /* organizar los links en la segunda fila*/
         justify-content: center;
-        flex-wrap: wrap;
+        align-items: center;
+        flex-wrap: nowrap; /* todos los links en una fila, no pueden saltar a otra fila */
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .link {
+        padding: 0.6rem 0.8rem;
     }
 }
 </style>

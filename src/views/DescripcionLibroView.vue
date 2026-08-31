@@ -41,4 +41,10 @@ defineProps({
     color: #475569;
     line-height: 1.6;
 }
+
+@media (max-width: 700px) {
+.descripcion-libro {
+    padding: 1rem;
+}
+}
 </style>
