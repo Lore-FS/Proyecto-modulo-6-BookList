@@ -101,8 +101,8 @@ const limpiarMensajeError = () => {
                 <button type="submit" class="btn-guardar">Guardar libro</button>
 
                 <div class="info">
-                    <p v-if="mostrarInfoGuia" class="texto-info">💡 Complete título, categoría, autor y descripción para registrar un
-                        libro. Todos los campos son obligatorios.</p>
+                    <p v-if="mostrarInfoGuia" class="texto-info">💡 Complete título, categoría, autor y descripción para registrar un libro. Todos los campos son obligatorios. También puede presionar Enter desde los campos Título o Autor para guardar el libro una vez completados todos los campos.
+                    </p>
                 </div>
 
                 <div v-show="mostrarMensaje" class="mensaje exito">

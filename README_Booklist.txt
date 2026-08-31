@@ -17,6 +17,7 @@ La aplicación permite:
 - Consultar el detalle de cada libro mediante una ruta dinámica.
 - Acceder a la descripción del libro mediante una ruta anidada.
 - Agregar nuevos libros.
+- Validar los campos obligatorios del formulario y mostrar mensajes de error, ayuda y confirmación durante el proceso de registro.
 - Eliminar libros existentes.
 - Visualizar una vista previa en tiempo real antes de registrar un libro.
 - Mostrar mensajes específicos para catálogo vacío y filtros sin resultados.
@@ -117,6 +118,7 @@ Permite:
 - Ingresar como invitado mediante un nombre de usuario.
 - Validar el nombre ingresado por el invitado.
 - Mostrar mensajes de éxito o error según corresponda.
+- Limpieza del mensaje de error cuando el usuario comienza a corregir o completar los campos faltantes en inicio de sesión o ingreso como invitado, utilizando @input asociado a una función que elimina los mensajes de error.
 - Mostrar un acceso directo al listado de libros cuando el ingreso es exitoso.
 - Utilizar un contador reactivo con opciones para incrementar, decrementar y resetear su valor. Los botones Decrementar y Resetear sólo se muestran cuando el contador es distinto de cero, y el contador no puede disminuir a valores negativos.
 - El estado local de Home se conserva mediante KeepAlive, permitiendo mantener el valor del contador reactivo al navegar hacia otras vistas y posteriormente regresar a Home.
@@ -175,9 +177,11 @@ Permite registrar un nuevo libro.
 Incluye:
 - Validación de los cuatro campos obligatorios: título, categoría, autor y descripción del libro.
 - Vista previa en tiempo real mediante v-model.
-- Mensajes de éxito y error.
-- Limpieza del mensaje de error cuando el usuario comienza a acorregir o completar los campos faltantes, utilizando @input y @change.
+- Mensaje de error cuando se intenta registrar un libro sin completar los cuatro campos obligatorios.
+- Limpieza del mensaje de error cuando el usuario comienza a a corregir o completar los campos faltantes, utilizando @input y @change.
 - Botón de ayuda contextual que utiliza el modificador .once para ejecutarse una sola vez.
+- Mensaje de ayuda con indicaciones para completar correctamente el formulario, mostrado mediante el botón informativo.
+- Después de registrar correctamente un libro, se limpian los campos del formulario, se muestra un mensaje de confirmación y un enlace para acceder directamente al listado de libros.
 - Registro del libro en el estado principal administrado desde App.vue.
 - Generación automática de ID consecutivo para cada nuevo libro.
 - Uso de @submit.prevent para controlar el envío del formulario mediante handleSubmit() y evitar la recarga predeterminada de la página por el navegador.
