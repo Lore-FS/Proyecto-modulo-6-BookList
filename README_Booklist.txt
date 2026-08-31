@@ -38,6 +38,7 @@ TECNOLOGÍAS UTILIZADAS
 ESTRUCTURA DEL PROYECTO
 
 public/
+├── 404.html
 └── index.html
 
 src/
@@ -308,6 +309,7 @@ Durante el desarrollo se tomaron las siguientes decisiones:
 - DetalleLibroView contiene un RouterView anidado que entrega el objeto libro mediante props a DescripcionLibroView.
 - Se diferenciarion dos situaciones de navegación excepcionales: una ruta válida con un ID de libro inexistente y una ruta completamente inexistente (error 404).
 - Los ID de libros inexistentes son manejados directamente por DetalleLibroView, mientras que las rutas inexistentes son capturadas mediante una ruta comodín y renderizadas en NotFoundView.
+- Para permitir la correcta recarga de rutas internas de la SPA desplegada en GitHub Pages, se agregó un archivo 404.html en la carpeta public. Cuando GitHub Pages no encuentra físicamente una ruta interna al recargar la página, este archivo guarda la ruta solicitada mediante sessionStorage y redirige al inicio de la aplicación. Además, se incorporó en el index.html un script que recuoera dicha ruta y la restaura mediante history.replaceState(), permitiendo que Vue Router continúe gestionando la navegación correspondiente (este procedimiento se realiza siguiendo recomendaciones de Copilot y ChatGPT).
 - Se utiliza RouterView con v-slot y <component :is="Component"> tanto en App.vue como en DetalleLibroView.vue. En App.vue se utiliza para controlar el renderizado de las distintas vistas principales y asignarles las props, eventos o KeepAlive correspondientes. En DetalleLibroView.vue se utiliza un RouterView anidado para renderizar la vista hija DescripcionLibroView.vue y pasarle mediante props el objeto libro correspondiente.
 - Se incorporó una vista previa en tiempo real antes de registrar un nuevo libro en el catálogo.
 - Se implementó la generación automática de identificadores consecutivos para los libros nuevos.
