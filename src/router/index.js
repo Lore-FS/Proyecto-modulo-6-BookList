@@ -7,7 +7,7 @@ import NotFound from '../views/NotFoundView.vue'
 import DescripcionLibro from '../views/DescripcionLibroView.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes: [
     {
       path: '/',
